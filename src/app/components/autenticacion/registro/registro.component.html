@@ -1,1 +1,124 @@
-<p>registro works!</p>
+<div class="container">
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="./assets/img/logo.png" alt="" width="72" height="72">
+        <h2>Registro</h2>
+        <p class="lead">
+            Nos da mucho gusto conocerte, esperamos que tengas una grán experiencia con nosotros. <br> 
+            ¡Tener una cuenta te permitirá acceder a más funciones ahora, y en el futuro!
+        </p>
+    </div>
+
+    <div class="row justify-content-center" style="margin-left: 10vw; margin-right: 10vw;">
+        <div class="col-12">
+            <form>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="firstName">Nombre</label>
+                        <input type="text" class="form-control rounded" id="firstName" placeholder="" value="">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="lastName">Apellidos</label>
+                        <input type="text" class="form-control rounded" id="lastName" placeholder="" value="">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="username">Nombre de usuario*</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">@</span>
+                            </div>
+                            <input type="text" class="form-control rounded" id="username" placeholder="Nombre de usuario" required="">
+                            <div class="invalid-feedback" style="width: 100%;">
+                                Se requiere un nombre de usuario. Únicamente conformado por letras, números, o guiones.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="email">Correo electrónico*</label>
+                        <input type="email" class="form-control rounded" id="email" placeholder="tucorreo@ejemplo.com" required="">
+                        <div class="invalid-feedback">
+                            Se requiere un correo electrónico válido.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="country">País*</label>
+                        <select class="custom-select d-block w-100 rounded" id="country" required="">
+                            <option value="">Elige...</option>
+                            <option>United States</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Selecciona un país válido.
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="state">Estado</label>
+                        <select class="custom-select d-block w-100 rounded" id="state" required="">
+                            <option value="">Elige...</option>
+                            <option>California</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Selecciona un estado válido.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="inputPassword">Contraseña*</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control rounded" id="inputPassword" placeholder="Contraseña" required="">
+                            <div class="invalid-feedback" style="width: 100%;">
+                                Se requiere un contraseña de al menos 8 caracteres, puedes usar números, símbolos, minúsculas y mayúsculas.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="againPassword">Repite tu contraseña*</label>
+                        <input type="password" class="form-control rounded" id="againPassword" placeholder="Contraseña" required="">
+                        <div class="invalid-feedback">
+                            Vuelve a introducir tu contraseña.
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="mb-4">
+
+                <div class="d-block my-3">
+                    <div class="custom-control custom-radio">
+                        <input id="sordo" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
+                        <label class="custom-control-label" for="sordo">Soy una persona sorda</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input id="oyente" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                        <label class="custom-control-label" for="oyente">Soy una persona oyente</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input id="otro" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                        <label class="custom-control-label" for="otro">Prefiero no decir</label>
+                    </div>
+                </div>
+                <div class="invalid-feedback">
+                    Selecciona una opción.
+                </div>
+
+                <hr class="mb-4">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="mailable">
+                    <label class="custom-control-label" for="mailable">Deseo recibir correos electrónicos acerca de nuevas funciones y actualizaciones</label>
+                </div>
+                <hr class="mb-4">
+                <div class="container-fluid text-center">
+                    <label class="">
+                        Al crear una cuenta estoy de acuerdo con la <a href="#">Política de privacidad</a>, y los <a href="#">Términos y condiciones de uso</a>.
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Crear cuenta</button> 
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
