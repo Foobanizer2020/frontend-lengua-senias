@@ -10,36 +10,57 @@
 
     <div class="row justify-content-center" style="margin-left: 10vw; margin-right: 10vw;">
         <div class="col-12">
-            <form>
+            <form [formGroup]="registroForm" (ngSubmit)="registrarUsuario()">
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="firstName">Nombre</label>
-                        <input type="text" class="form-control rounded" id="firstName" placeholder="" value="">
+                        <input type="text" class="form-control rounded" id="firstName" formControlName="nombre" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }">
+                        <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+                            <div *ngIf="f.nombre.errors.required">El nombre es obligatorio</div>
+                        </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="lastName">Apellidos</label>
-                        <input type="text" class="form-control rounded" id="lastName" placeholder="" value="">
+                        <input type="text" class="form-control rounded" id="lastName" formControlName="apellidos" [ngClass]="{ 'is-invalid': submitted && f.apellidos.errors }">
+                        <div *ngIf="submitted && f.apellidos.errors" class="invalid-feedback">
+                            <div *ngIf="f.apellidos.errors.required">Los apellidos son obligatorios</div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="username">Nombre de usuario*</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">@</span>
-                            </div>
-                            <input type="text" class="form-control rounded" id="username" placeholder="Nombre de usuario" required="">
-                            <div class="invalid-feedback" style="width: 100%;">
-                                Se requiere un nombre de usuario. Únicamente conformado por letras, números, o guiones.
-                            </div>
+                        <label for="language">Idioma*</label>
+                        <select class="custom-select d-block w-100 rounded" id="language" formControlName="idioma" [ngClass]="{ 'is-invalid': submitted && f.idioma.errors }">
+                            <option value="" hidden>Elige...</option>
+                            <option *ngFor="let idioma of idiomas" [ngValue]="idioma.id">{{ idioma.nombre }}</option>
+                        </select>
+                        <div *ngIf="submitted && f.idioma.errors" class="invalid-feedback">
+                            <div *ngIf="f.idioma.errors.required">Selecciona un idioma válido</div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="email">Correo electrónico*</label>
-                        <input type="email" class="form-control rounded" id="email" placeholder="tucorreo@ejemplo.com" required="">
-                        <div class="invalid-feedback">
-                            Se requiere un correo electrónico válido.
+                        <input type="email" class="form-control rounded" id="email" placeholder="tucorreo@ejemplo.com" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors">Se requiere un correo electrónico válido.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="password">Contraseña*</label>
+                        <input type="password" class="form-control rounded" id="password" placeholder="Contraseña" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors">Se requiere un contraseña de al menos 8 caracteres, puedes usar números, símbolos, minúsculas y mayúsculas.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="confirm-password">Repite tu contraseña*</label>
+                        <input type="password" class="form-control rounded" id="confirm-password" placeholder="Contraseña" formControlName="confirm_password" [ngClass]="{ 'is-invalid': submitted && f.confirm_password.errors }">
+                        <div *ngIf="submitted && f.confirm_password.errors" class="invalid-feedback">
+                            <div *ngIf="f.confirm_password.errors">Las contraseñas deben coincidir.</div>
                         </div>
                     </div>
                 </div>
@@ -47,74 +68,30 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="country">País*</label>
-                        <select class="custom-select d-block w-100 rounded" id="country" required="">
-                            <option value="">Elige...</option>
-                            <option>United States</option>
+                        <select class="custom-select d-block w-100 rounded" id="country" formControlName="pais" [ngClass]="{ 'is-invalid': submitted && f.pais.errors }">
+                            <option value="" hidden>Elige...</option>
+                            <option *ngFor="let pais of paises" [ngValue]="pais.id">{{ pais.nombre }}</option>
                         </select>
-                        <div class="invalid-feedback">
-                            Selecciona un país válido.
+                        <div *ngIf="submitted && f.pais.errors" class="invalid-feedback">
+                            <div *ngIf="f.pais.errors.required">Selecciona un país válido.</div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="state">Estado</label>
-                        <select class="custom-select d-block w-100 rounded" id="state" required="">
-                            <option value="">Elige...</option>
-                            <option>California</option>
+                        <label for="state">Estado*</label>
+                        <select class="custom-select d-block w-100 rounded" id="state" formControlName="estado" [ngClass]="{ 'is-invalid': submitted && f.estado.errors }">
+                            <option value="" hidden>Elige...</option>
+                            <option *ngFor="let estado of estados" [ngValue]="estado.id">{{ estado.nombre }}</option>
                         </select>
-                        <div class="invalid-feedback">
-                            Selecciona un estado válido.
+                        <div *ngIf="submitted && f.estado.errors" class="invalid-feedback">
+                            <div *ngIf="f.estado.errors.required">Selecciona un estado válido.</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="inputPassword">Contraseña*</label>
-                        <div class="input-group">
-                            <input type="password" class="form-control rounded" id="inputPassword" placeholder="Contraseña" required="">
-                            <div class="invalid-feedback" style="width: 100%;">
-                                Se requiere un contraseña de al menos 8 caracteres, puedes usar números, símbolos, minúsculas y mayúsculas.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="againPassword">Repite tu contraseña*</label>
-                        <input type="password" class="form-control rounded" id="againPassword" placeholder="Contraseña" required="">
-                        <div class="invalid-feedback">
-                            Vuelve a introducir tu contraseña.
-                        </div>
-                    </div>
-                </div>
-
-                <hr class="mb-4">
-
-                <div class="d-block my-3">
-                    <div class="custom-control custom-radio">
-                        <input id="sordo" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
-                        <label class="custom-control-label" for="sordo">Soy una persona sorda</label>
-                    </div>
-                    <div class="custom-control custom-radio">
-                        <input id="oyente" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                        <label class="custom-control-label" for="oyente">Soy una persona oyente</label>
-                    </div>
-                    <div class="custom-control custom-radio">
-                        <input id="otro" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                        <label class="custom-control-label" for="otro">Prefiero no decir</label>
-                    </div>
-                </div>
-                <div class="invalid-feedback">
-                    Selecciona una opción.
-                </div>
-
-                <hr class="mb-4">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="mailable">
-                    <label class="custom-control-label" for="mailable">Deseo recibir correos electrónicos acerca de nuevas funciones y actualizaciones</label>
-                </div>
                 <hr class="mb-4">
                 <div class="container-fluid text-center">
                     <label class="">
-                        Al crear una cuenta estoy de acuerdo con la <a href="#">Política de privacidad</a>, y los <a href="#">Términos y condiciones de uso</a>.
+                        Al crear una cuenta estoy de acuerdo con la <a href="/">Política de privacidad</a>, y los <a href="#">Términos y condiciones de uso</a>.
                         <button class="btn btn-primary btn-lg btn-block" type="submit">Crear cuenta</button> 
                     </label>
                 </div>
