@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Idioma } from 'src/app/_models/idioma';
+import { Pais } from 'src/app/_models/pais';
 import { AuthService } from 'src/app/_services/autenticacion/auth.service';
 import { TokenStorageService } from 'src/app/_services/autenticacion/token-storage.service';
+import { IdiomaService } from 'src/app/_services/idioma.service';
+import { PaisService } from 'src/app/_services/pais.service';
 
 declare var $:any;
 
@@ -14,9 +18,9 @@ declare var $:any;
 export class RegistroComponent implements OnInit {
 
   registroForm:FormGroup;
-  submitted:Boolean;
-  idiomas:any[];
-  paises:any[];
+  submitted:boolean = false;
+  idiomas:Idioma[];
+  paises:Pais[];
   estados:any[];
   registerFailed:boolean = false;
   errorMessage:string;
@@ -25,7 +29,9 @@ export class RegistroComponent implements OnInit {
     private formBuilder:FormBuilder,
     private authService: AuthService,
     private tokenStorage: TokenStorageService,
-    private router: Router
+    private router: Router,
+    private paisService: PaisService,
+    private idiomaService: IdiomaService
   ) { }
 
   ngOnInit(): void {
@@ -91,43 +97,19 @@ export class RegistroComponent implements OnInit {
   }
 
   getIdiomas() {
-    this.idiomas = [
-      {id:1, nombre:"Español"},
-      {id:2, nombre:"English"},
-      {id:3, nombre:"Français"}
-    ];
+    this.idiomaService.getIdiomas().subscribe(
+      res => {
+        this.idiomas = res;
+      }
+    );
   }
 
   getPaises() {
-    this.paises = [
-      {
-        id:1, 
-        nombre:"México", 
-        estados: [
-          {id:1, nombre:"Español"},
-          {id:2, nombre:"English"},
-          {id:3, nombre:"Français"}
-        ]
-      },
-      {
-        id:1, 
-        nombre:"Estados Unidos", 
-        estados: [
-          {id:1, nombre:"Español"},
-          {id:2, nombre:"English"},
-          {id:3, nombre:"Français"}
-        ]
-      },
-      {
-        id:1, 
-        nombre:"Francia", 
-        estados: [
-          {id:1, nombre:"Español"},
-          {id:2, nombre:"English"},
-          {id:3, nombre:"Français"}
-        ]
+    this.paisService.getPaises().subscribe(
+      res => {
+        this.paises = res;
       }
-    ];
+    );
   }
 
   getEstados() {
