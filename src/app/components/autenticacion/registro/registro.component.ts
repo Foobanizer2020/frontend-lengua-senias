@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Estado } from 'src/app/_models/estado';
 import { Idioma } from 'src/app/_models/idioma';
 import { Pais } from 'src/app/_models/pais';
 import { AuthService } from 'src/app/_services/autenticacion/auth.service';
@@ -19,9 +20,12 @@ export class RegistroComponent implements OnInit {
 
   registroForm:FormGroup;
   submitted:boolean = false;
+  
   idiomas:Idioma[];
   paises:Pais[];
-  estados:any[];
+  estados:Estado[];
+  paisSeleccionado:boolean = false;
+
   registerFailed:boolean = false;
   errorMessage:string;
 
@@ -50,7 +54,6 @@ export class RegistroComponent implements OnInit {
     this.submitted = false;
     this.getIdiomas();
     this.getPaises();
-    this.getEstados();
   }
 
   mustMatch(controlName: string, matchingControlName: string) {
@@ -78,6 +81,8 @@ export class RegistroComponent implements OnInit {
       console.log('Formulario inválido.')
       return
     }
+
+    console.log("Mandando al server: \n", this.registroForm.value);
 
     this.authService.fake(this.registroForm.value).subscribe(
       res => {
@@ -112,11 +117,12 @@ export class RegistroComponent implements OnInit {
     );
   }
 
-  getEstados() {
-    this.estados = [
-      {id:1, nombre:"estado1"},
-      {id:2, nombre:"estado2"},
-      {id:3, nombre:"estado3"}
-    ];
+  updateEstados(paisId) {
+    this.paisService.getEstados(paisId).subscribe(
+      res => {
+        this.paisSeleccionado = true;
+        this.estados = res;
+      }
+    );
   }
 }
