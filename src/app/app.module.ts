@@ -8,13 +8,17 @@ import { RegistroComponent } from './components/autenticacion/registro/registro.
 import { UsuarioComponent } from './components/autenticacion/usuario/usuario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './components/home/home.component';
+
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistroComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    authInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

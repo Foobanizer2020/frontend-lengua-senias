@@ -88,6 +88,10 @@
                     </div>
                 </div>
 
+                <div class="alert alert-danger" *ngIf="submitted && registerFailed">
+                    Error en el registro:<br />{{ errorMessage }}
+                </div>
+
                 <hr class="mb-4">
                 <div class="container-fluid text-center">
                     <label class="">

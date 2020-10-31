@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoginService } from 'src/app/_services/autenticacion/login.service';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/_services/autenticacion/auth.service';
+import { TokenStorageService } from 'src/app/_services/autenticacion/token-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -10,11 +12,15 @@ import { LoginService } from 'src/app/_services/autenticacion/login.service';
 export class LoginComponent implements OnInit {
 
   loginForm:FormGroup;
-  submitted:Boolean;
+  submitted:Boolean = false;
+  loginFailed:Boolean = false;
+  errorMessage:String;
 
   constructor(
     private formBuilder:FormBuilder,
-    private loginService:LoginService
+    private authService: AuthService,
+    private router: Router,
+    private tokenStorage: TokenStorageService
   ) { }
 
   ngOnInit(): void {
@@ -32,11 +38,16 @@ export class LoginComponent implements OnInit {
       return
     }
 
-    this.loginService.login(this.loginForm.value).subscribe(
+    this.authService.fake(this.loginForm.value).subscribe(
       res => {
-        // redirect to home
+        this.tokenStorage.saveToken(res.token);
+        this.tokenStorage.saveUser(res);
+        this.router.navigateByUrl('home');
       },
-      err => {console.log(err)}
+      err => {
+        this.loginFailed = true;
+        this.errorMessage = err.message;
+      }
     );
   }
 

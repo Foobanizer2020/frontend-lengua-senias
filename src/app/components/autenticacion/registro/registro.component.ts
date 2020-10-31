@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegistroService } from 'src/app/_services/autenticacion/registro.service';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/_services/autenticacion/auth.service';
+import { TokenStorageService } from 'src/app/_services/autenticacion/token-storage.service';
 
 declare var $:any;
 
@@ -16,10 +18,14 @@ export class RegistroComponent implements OnInit {
   idiomas:any[];
   paises:any[];
   estados:any[];
+  registerFailed:boolean = false;
+  errorMessage:string;
 
   constructor(
     private formBuilder:FormBuilder,
-    private registroService:RegistroService
+    private authService: AuthService,
+    private tokenStorage: TokenStorageService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -67,11 +73,16 @@ export class RegistroComponent implements OnInit {
       return
     }
 
-    this.registroService.registrarUsuario(this.registroForm.value).subscribe(
+    this.authService.fake(this.registroForm.value).subscribe(
       res => {
-        // redirect to home
+        this.tokenStorage.saveToken(res.token);
+        this.tokenStorage.saveUser(res);
+        this.router.navigateByUrl('home');
       },
-      err => {console.log(err)}
+      err => {
+        this.registerFailed = true;
+        this.errorMessage = err.message;
+      }
     );
   }
 

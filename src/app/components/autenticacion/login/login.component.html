@@ -5,20 +5,24 @@
         
         <label for="email" class="sr-only">Correo Electrónico</label>
         <input type="email" id="email" class="form-control" placeholder="Tu e-mail" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+        
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-            <div *ngIf="f.email.errors">Correo electrónico inválido.</div>
+            <div *ngIf="f.email.errors.required">Se require una dirección de correo electrónico.</div>
+        </div>
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.email">Dirección de correo electrónico inválida.</div>
         </div>
 
         <label for="password" class="sr-only">Contraseña</label>
         <input type="password" id="password" class="form-control" placeholder="Tu contraseña" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors">Se requiere tu contraseña.</div>
+            <div *ngIf="f.password.errors.required">Se requiere tu contraseña.</div>
         </div>
 
-        <div class="custom-control custom-checkbox mb-3">
-            <input type="checkbox" class="custom-control-input" id="remember-me" value="remember-me" formControlName="remember_me">
-            <label class="custom-control-label" for="remember-me">Recuerdame</label>
+        <div class="alert alert-danger" *ngIf="submitted && loginFailed">
+            Error en el registro:<br />{{ errorMessage }}
         </div>
+
         <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
     </form>
     <i class="fa fa-question-circle-o" aria-hidden="true"></i> ¿No nos conocemos? <a href="/registro">¡Registrate!</a>

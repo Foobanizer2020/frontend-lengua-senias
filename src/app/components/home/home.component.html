@@ -1,0 +1,8 @@
+<p>home works!</p>
+<div *ngIf="!isLoggedIn">
+    <a routerLink="/login">Iniciar sesión</a><br>
+    <a routerLink="/registro">Registrarse</a>
+</div>
+<div *ngIf="isLoggedIn">
+    <a (click)="signOut()" routerLink="">Cerrar sesión</a>
+</div>
