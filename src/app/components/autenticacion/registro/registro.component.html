@@ -78,7 +78,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="state">Estado*</label>
-                        <select class="custom-select d-block w-100 rounded" id="state" formControlName="estado" [ngClass]="{ 'is-invalid': submitted && f.estado.errors }">
+                        <select disabled class="custom-select d-block w-100 rounded" id="state" formControlName="estado" [ngClass]="{ 'is-invalid': submitted && f.estado.errors }">
                             <option value="" hidden>Elige...</option>
                             <option *ngFor="let estado of estados" [ngValue]="estado.id">{{ estado.nombre }}</option>
                         </select>

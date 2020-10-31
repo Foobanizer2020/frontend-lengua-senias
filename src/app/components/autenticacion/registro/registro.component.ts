@@ -24,7 +24,6 @@ export class RegistroComponent implements OnInit {
   idiomas:Idioma[];
   paises:Pais[];
   estados:Estado[];
-  paisSeleccionado:boolean = false;
 
   registerFailed:boolean = false;
   errorMessage:string;
@@ -120,8 +119,8 @@ export class RegistroComponent implements OnInit {
   updateEstados(paisId) {
     this.paisService.getEstados(paisId).subscribe(
       res => {
-        this.paisSeleccionado = true;
         this.estados = res;
+        this.registroForm.controls.estado.enable()
       }
     );
   }
