@@ -12,6 +12,8 @@ import { HomeComponent } from './components/home/home.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { EstadoComponent } from './components/estado/estado.component';
+import { PaisComponent } from './components/pais/pais.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,14 +22,16 @@ import { EstadoComponent } from './components/estado/estado.component';
     RegistroComponent,
     UsuarioComponent,
     HomeComponent,
-    EstadoComponent
+    EstadoComponent,
+    PaisComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
     authInterceptorProviders
