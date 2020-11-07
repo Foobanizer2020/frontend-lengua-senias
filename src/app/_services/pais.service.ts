@@ -10,11 +10,29 @@ import { Pais } from '../_models/pais';
 })
 export class PaisService {
 
+  API_URI = 'http://localhost:8080'
+
   constructor(private http:HttpClient) { }
 
   getPaises() {
     //return this.http.get(environment.api_uri + '/pais');
-    return this.http.get<Pais[]>('/assets/paises.json');
+    return this.http.get<Pais[]>(this.API_URI+'/pais');
+  }
+
+  getPais(id:number){
+    return this.http.get<Pais>(this.API_URI+'/pais'+id);
+  }
+
+  createPais(pais:Pais){
+    return this.http.post(this.API_URI+'/pais',pais);
+  }
+
+  updatePais(pais:Pais){
+    return this.http.put(this.API_URI+'/pais/'+pais.id,pais);
+  }
+
+  deletePais(id: number){
+    return this.http.delete(this.API_URI+'/pais/'+ id);
   }
 
   getEstados(id_pais) {
