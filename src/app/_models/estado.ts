@@ -1,7 +1,7 @@
 import { Pais } from './pais';
 
 export interface Estado {
-    id:number;
+    idEstado:number;
     nombre:string;
-    pais:Pais
+    pais:number
 }

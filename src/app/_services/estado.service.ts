@@ -12,8 +12,8 @@ export class EstadoService {
 
   constructor(private http: HttpClient) { }
 
-  getEstados() {
-    return this.http.get<Estado[]>(api_uri);
+  getEstados(paisId:number) {
+    return this.http.get<Estado[]>(api_uri+ '/pais/'+ paisId);
   }
 
   getEstado(id) {
