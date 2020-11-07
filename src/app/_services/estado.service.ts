@@ -24,8 +24,8 @@ export class EstadoService {
     return this.http.post(api_uri, estado);
   }
 
-  updateEstado(id, estado:Estado) {
-    return this.http.put(api_uri + '/' + id, estado);
+  updateEstado(estado:Estado) {
+    return this.http.put(api_uri + '/' + estado.idEstado, estado);
   }
 
   deleteEstado(id) {
