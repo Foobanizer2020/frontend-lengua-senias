@@ -9,7 +9,7 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
-const api_uri = environment.api_uri + '/api/auth';
+const api_uri = environment.api_uri + '/api/autenticacion';
 
 @Injectable({
   providedIn: 'root'
@@ -18,14 +18,10 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(credentials:Credentials): Observable<any> {
-    return this.http.post(api_uri + 'login', credentials, httpOptions);
+    return this.http.post(api_uri + '/login', credentials, httpOptions);
   }
 
   registro(usuario:Usuario): Observable<any> {
-    return this.http.post(api_uri + 'registro', usuario, httpOptions);
-  }
-
-  fake(data): Observable<any>{
-    return this.http.get('/assets/fake.json');
+    return this.http.post(api_uri + '/registro', usuario);
   }
 }

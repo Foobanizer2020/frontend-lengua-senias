@@ -6,6 +6,7 @@ import { Idioma } from 'src/app/_models/idioma';
 import { Pais } from 'src/app/_models/pais';
 import { AuthService } from 'src/app/_services/autenticacion/auth.service';
 import { TokenStorageService } from 'src/app/_services/autenticacion/token-storage.service';
+import { EstadoService } from 'src/app/_services/estado.service';
 import { IdiomaService } from 'src/app/_services/idioma.service';
 import { PaisService } from 'src/app/_services/pais.service';
 
@@ -34,7 +35,8 @@ export class RegistroComponent implements OnInit {
     private tokenStorage: TokenStorageService,
     private router: Router,
     private paisService: PaisService,
-    private idiomaService: IdiomaService
+    private idiomaService: IdiomaService,
+    private estadoService: EstadoService
   ) { }
 
   ngOnInit(): void {
@@ -81,17 +83,24 @@ export class RegistroComponent implements OnInit {
       return
     }
 
-    console.log("Mandando al server: \n", this.registroForm.value);
-
-    this.authService.fake(this.registroForm.value).subscribe(
+    this.authService.registro(this.registroForm.value).subscribe(
       res => {
-        this.tokenStorage.saveToken(res.token);
-        this.tokenStorage.saveUser(res);
-        this.router.navigateByUrl('home');
+        this.authService.login(this.registroForm.value).subscribe(
+          res => {
+            this.tokenStorage.saveToken(res.token);
+            this.tokenStorage.saveUser(res);
+            this.router.navigateByUrl('home');
+          },
+          err => {
+            this.registerFailed = true;
+            this.errorMessage = err.message;
+          }
+        );
       },
       err => {
         this.registerFailed = true;
         this.errorMessage = err.message;
+        console.log(err);
       }
     );
   }
@@ -117,10 +126,10 @@ export class RegistroComponent implements OnInit {
   }
 
   updateEstados(paisId) {
-    this.paisService.getEstados(paisId).subscribe(
+    this.estadoService.getEstados(paisId).subscribe(
       res => {
         this.estados = res;
-        this.registroForm.controls.estado.enable()
+        this.registroForm.controls.estado.enable();
       }
     );
   }

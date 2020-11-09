@@ -70,7 +70,7 @@
                         <label for="country">País*</label>
                         <select class="custom-select d-block w-100 rounded" id="country" (change)="updateEstados($event.target.value)" formControlName="pais" [ngClass]="{ 'is-invalid': submitted && f.pais.errors }">
                             <option value="" hidden>Elige...</option>
-                            <option *ngFor="let pais of paises" [value]="pais.id">{{ pais.nombre }}</option>
+                            <option *ngFor="let pais of paises" [value]="pais.idPais">{{ pais.pais }}</option>
                         </select>
                         <div *ngIf="submitted && f.pais.errors" class="invalid-feedback">
                             <div *ngIf="f.pais.errors.required">Selecciona un país válido.</div>
@@ -80,7 +80,7 @@
                         <label for="state">Estado*</label>
                         <select disabled class="custom-select d-block w-100 rounded" id="state" formControlName="estado" [ngClass]="{ 'is-invalid': submitted && f.estado.errors }">
                             <option value="" hidden>Elige...</option>
-                            <option *ngFor="let estado of estados" [ngValue]="estado.id">{{ estado.nombre }}</option>
+                            <option *ngFor="let estado of estados" [ngValue]="estado.idEstado">{{ estado.nombre }}</option>
                         </select>
                         <div *ngIf="submitted && f.estado.errors" class="invalid-feedback">
                             <div *ngIf="f.estado.errors.required">Selecciona un estado válido.</div>
