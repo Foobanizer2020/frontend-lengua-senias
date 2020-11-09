@@ -15,8 +15,7 @@ export class PaisService {
   constructor(private http:HttpClient) { }
 
   getPaises() {
-    //return this.http.get(environment.api_uri + '/pais');
-    return this.http.get<Pais[]>(this.API_URI+'/pais');
+    return this.http.get<Pais[]>(this.API_URI+'/pais/paises');
   }
 
   getPais(id:number){
@@ -28,15 +27,10 @@ export class PaisService {
   }
 
   updatePais(pais:Pais){
-    return this.http.put(this.API_URI+'/pais/'+pais.id,pais);
+    return this.http.put(this.API_URI+'/pais/'+pais.idPais,pais);
   }
 
   deletePais(id: number){
     return this.http.delete(this.API_URI+'/pais/'+ id);
-  }
-
-  getEstados(id_pais) {
-    //return this.http.get<Estado[]>(environment.api_uri+'/pais/'+id_pais+'/estados');
-    return this.http.get<Estado[]>('/assets/estados'+id_pais+'.json');
   }
 }
