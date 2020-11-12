@@ -1,0 +1,29 @@
+<div class="modal" id="fraseModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ formStatus == 'CREATE' ? 'Agregar' : 'Actualizar'}} frase</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="fraseForm" (ngSubmit)="formStatus == 'CREATE' ? createFrase() : updateFrase()">
+                    <div class="form-group">
+                        <label for="contenido">Contenido<span class="text-danger">*</span></label>
+                        <input type="text" formControlName="contenido" class="form-control rounded" [ngClass]="{ 'is-invalid': submitted && f.contenido.errors }">
+                        <div *ngIf="submitted && f.contenido.errors" class="invalid-feedback">
+                            <div *ngIf="f.contenido.errors.required">El contenido de la frase es obligatorio</div>
+                        </div>
+                    </div>
+
+                    <p class="text-right"><span class="text-danger">*</span> Campos requeridos</p>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary rounded">
+                            {{ formStatus == 'CREATE' ? 'Guardar' : 'Actualizar'}}
+                        </button>
+                        <button class="btn btn-warning rounded" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>        
+    </div>
+</div>
