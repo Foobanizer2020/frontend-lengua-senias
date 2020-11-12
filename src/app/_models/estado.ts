@@ -1,5 +1,3 @@
-import { Pais } from './pais';
-
 export interface Estado {
     idEstado:number;
     nombre:string;
