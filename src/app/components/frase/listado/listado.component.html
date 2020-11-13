@@ -1,2 +1,33 @@
-<button class="btn btn-primary" (click)="openModal()">Agregar</button>
-<app-formulario-frase></app-formulario-frase>
+<div class="container p-3">
+    <div class="card mb-3">
+        <div class="card-header">
+            <h3>
+                Frases
+                <button style="float: right;" class="btn btn-primary rounded" type="button" (click)="openModal()">Agregar</button>
+            </h3>
+            <div class="card-body">
+                <table class ="table">
+                <thead>
+                    <th>Contenido</th>
+                    <th>Acciones</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor= "let frase of frases">
+                        <td>{{frase.contenido}}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary rounded">Detalles</button>
+                            &nbsp;&nbsp;
+                            <button (click)="deleteFrase(frase.idFrase)" type="button" class="btn btn-warning rounded">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-formulario-frase 
+    [formStatus]="'CREATE'"
+    (notify)="getFrases()"
+></app-formulario-frase>
