@@ -7,28 +7,28 @@ import {Fcategoria} from '../_models/fcategoria';
 })
 export class FcategoriaService {
 
-  API_URI = 'http://localhost:8080'
+  API_URI = 'http://localhost:8080/api/fcategoria'
 
   constructor(private http:HttpClient) { }
 
   getFcategorias() {
-    return this.http.get<Fcategoria[]>(this.API_URI+'/fcategoria');
+    return this.http.get<Fcategoria[]>(this.API_URI);
   }
 
   getFcategoria(id:number){
-    return this.http.get<Fcategoria>(this.API_URI+'/fcategoria'+id);
+    return this.http.get<Fcategoria>(this.API_URI+'/'+id);
   }
 
   createFcategoria(fcategoria: Fcategoria){
-    return this.http.post(this.API_URI+'/fcategoria',fcategoria);
+    return this.http.post(this.API_URI+'/',fcategoria);
   }
 
   updateFcategoria(fcategoria: Fcategoria){
-    return this.http.put(this.API_URI+'/fcategoria/'+fcategoria.idFcategoria, fcategoria);
+    return this.http.put(this.API_URI+'/'+fcategoria.idFcategoria, fcategoria);
   }
 
   deleteFcategoria(id: number){
-    return this.http.delete(this.API_URI+'/fcategoria/'+ id);
+    return this.http.delete(this.API_URI+'/'+ id);
   
   }
 }
