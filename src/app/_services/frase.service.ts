@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Frase } from '../_models/frase';
 
-const api_uri = environment.api_uri + '/api/estado';
+const api_uri = environment.api_uri + '/api/frase';
 
 @Injectable({
   providedIn: 'root'
