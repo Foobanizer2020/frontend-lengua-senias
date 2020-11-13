@@ -9,22 +9,22 @@ export class FraseService {
   constructor() { }
 
   getFrases() {
-    return;
+    return null;
   }
 
   getFrase(id:number) {
-    return;
+    return null;
   }
 
   createFrase(frase:Frase) {
-    return;
+    return null;
   }
 
   updateFrase(frase:Frase) {
-    return;
+    return null;
   }
 
   deleteFrase(id:number) {
-    return;
+    return null;
   }
 }

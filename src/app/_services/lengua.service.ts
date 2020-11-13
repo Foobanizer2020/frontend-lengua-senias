@@ -1,13 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Lengua } from '../_models/lengua';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LenguaService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getLenguas() {
-    return;
+    return this.http.get<Lengua[]>("/dummy");
   }
 }

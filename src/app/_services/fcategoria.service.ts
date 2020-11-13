@@ -1,11 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Fcategoria } from '../_models/fcategoria';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FcategoriaService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
-  getCategorias() {}
+  getFcategorias() {
+    return this.http.get<Fcategoria[]>("/dummy");
+  }
 }
