@@ -15,7 +15,7 @@
                     <tr *ngFor= "let frase of frases">
                         <td>{{frase.contenido}}</td>
                         <td>
-                            <button type="button" class="btn btn-primary rounded">Detalles</button>
+                            <button [routerLink]="['/frase', frase.idFrase]" type="button" class="btn btn-primary rounded">Detalles</button>
                             &nbsp;&nbsp;
                             <button (click)="deleteFrase(frase.idFrase)" type="button" class="btn btn-warning rounded">Eliminar</button>
                         </td>

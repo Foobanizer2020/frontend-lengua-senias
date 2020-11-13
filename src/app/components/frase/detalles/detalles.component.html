@@ -1,1 +1,21 @@
-<p>detalles works!</p>
+<div class="container p-3">
+    <div class="card mb-3">
+        <div class="card-header">
+            <h3>
+                Frase: {{ frase ? frase.idFrase : '' }}
+                <button style="float: right;" class="btn btn-primary rounded" type="button" (click)="openModal()">Editar</button>
+            </h3>
+            <div class="card-body">
+                <p>{{ frase ? frase.contenido : '' }}</p>
+            </div>
+            <video width="320" height="240" autoplay>
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</div>
+
+<app-formulario-frase 
+    [formStatus]="'UPDATE'"
+></app-formulario-frase>
