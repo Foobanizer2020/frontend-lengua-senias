@@ -14,6 +14,7 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { EstadoComponent } from './components/estado/estado.component';
 import { PaisComponent } from './components/pais/pais.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FcategoriaComponent } from './components/fcategoria/fcategoria.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     UsuarioComponent,
     HomeComponent,
     EstadoComponent,
-    PaisComponent
+    PaisComponent,
+    FcategoriaComponent
   ],
   imports: [
     BrowserModule,

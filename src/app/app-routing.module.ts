@@ -5,6 +5,7 @@ import { RegistroComponent } from './components/autenticacion/registro/registro.
 import { EstadoComponent } from './components/estado/estado.component';
 import { HomeComponent } from './components/home/home.component';
 import { PaisComponent } from './components/pais/pais.component';
+import {FcategoriaComponent} from './components/fcategoria/fcategoria.component';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'estado', component:EstadoComponent},
   {path: 'pais',component:PaisComponent},
+  {path:'fcategoria', component:FcategoriaComponent},
   {path:'', redirectTo:'/home', pathMatch: 'full'}
 ];
 
