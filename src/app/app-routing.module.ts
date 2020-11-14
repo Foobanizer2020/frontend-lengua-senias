@@ -7,6 +7,7 @@ import { DetallesComponent as DetallesFraseComponent } from './components/frase/
 import { ListadoComponent as ListadoFraseComponent } from './components/frase/listado/listado.component';
 import { HomeComponent } from './components/home/home.component';
 import { PaisComponent } from './components/pais/pais.component';
+import {FcategoriaComponent} from './components/fcategoria/fcategoria.component';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:'pais',component:PaisComponent},
   {path:'frase',component:ListadoFraseComponent},
   {path:'frase/:idFrase',component:DetallesFraseComponent},
+  {path:'fcategoria', component:FcategoriaComponent},
   {path:'', redirectTo:'/home', pathMatch: 'full'}
 ];
 

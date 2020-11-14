@@ -4,6 +4,9 @@ import { Pais}  from '../../_models/pais';
 import { PaisService } from '../../_services/pais.service';
 
 import  { FormBuilder, Validators, FormGroup} from '@angular/forms';
+import Swal from 'sweetalert2';
+
+
 
 declare var $: any;
 
@@ -18,15 +21,22 @@ export class PaisComponent implements OnInit {
   pais: Pais | any;
   paisForm: FormGroup;
   submitted = false;
+  formStatus:String;
 
-  constructor( private paisService: PaisService, private formBuilder: FormBuilder) { }
+  messageTime:number = 1000;
+
+
+  constructor( 
+    private paisService: PaisService, 
+    private formBuilder: FormBuilder
+    ) { }
 
   ngOnInit(): void {
      // Inicie el formulario vacio
      this.paisForm = this.formBuilder.group({
-      id: [''],
-      nombre: ['', Validators.required],
-      abreviatura: ['']
+      "id": [''],
+      "nombre": ['', Validators.required],
+      "abreviatura": ['']
     });
 
     // Consulte lista paises
@@ -56,17 +66,28 @@ export class PaisComponent implements OnInit {
       err => console.error(err)
     )
   }
-
+  
   // Eliminar un  pais
   deletePais(id){
     this.paisService.deletePais(id).subscribe(
       res => {
         this.getPaises();
+        Swal.fire({
+          icon: 'success',
+          title: 'Pais eliminado exitosamente',
+          showConfirmButton: false,
+          timer: this.messageTime
+        });
       },
       err => console.error(err)
     )
   }
-
+  openRegistroModal() {
+    this.paisForm.reset();
+    this.submitted = false;
+    this.formStatus = "CREATE";
+    $("#paisModal").modal("show");
+  }
   // Crear un pais
   createPais(){
     this.submitted = true;
@@ -79,11 +100,25 @@ export class PaisComponent implements OnInit {
     this.paisService.createPais(this.paisForm.value).subscribe(
       res => {
         this.getPaises();
+        $("#paisModal").modal("hide");
+        Swal.fire({
+          icon: 'success',
+          title: 'Pais guardado exitosamente',
+          showConfirmButton: false,
+          timer: this.messageTime
+        });
       },
-      err => console.error(err)
+      err => {
+        this.getPaises();
+        console.error(err)}
     )
   }
-
+  openEdicionModal(pais:Pais) {
+    this.paisForm.setValue(pais);
+    this.submitted = false;
+    this.formStatus = "UPDATE";
+    $("#paisModal").modal("show");
+  }
   // Actualizar un pais
   updatePais(){
     this.submitted = true;
@@ -96,6 +131,13 @@ export class PaisComponent implements OnInit {
     this.paisService.updatePais(this.paisForm.value).subscribe(
       res => {
         this.getPaises();
+        $("#paisModal").modal("hide");
+        Swal.fire({
+          icon: 'success',
+          title: 'Pais actualizado exitosamente',
+          showConfirmButton: false,
+          timer: this.messageTime
+        });
       },
       err => console.error(err)
     )

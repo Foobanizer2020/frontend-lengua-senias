@@ -14,9 +14,10 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { EstadoComponent } from './components/estado/estado.component';
 import { PaisComponent } from './components/pais/pais.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormularioComponent } from './components/frase/formulario/formulario.component';
-import { DetallesComponent } from './components/frase/detalles/detalles.component';
-import { ListadoComponent } from './components/frase/listado/listado.component';
+import { FormularioComponent as FraseFormularioComponent } from './components/frase/formulario/formulario.component';
+import { DetallesComponent as FraseDetallesComponent } from './components/frase/detalles/detalles.component';
+import { ListadoComponent as FraseListadoComponent } from './components/frase/listado/listado.component';
+import { FcategoriaComponent } from './components/fcategoria/fcategoria.component';
 
 @NgModule({
   declarations: [
@@ -27,9 +28,10 @@ import { ListadoComponent } from './components/frase/listado/listado.component';
     HomeComponent,
     EstadoComponent,
     PaisComponent,
-    FormularioComponent,
-    DetallesComponent,
-    ListadoComponent
+    FraseFormularioComponent,
+    FraseDetallesComponent,
+    FraseListadoComponent,
+    FcategoriaComponent
   ],
   imports: [
     BrowserModule,
