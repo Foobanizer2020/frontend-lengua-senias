@@ -5,24 +5,24 @@
                 Frases
                 <button style="float: right;" class="btn btn-primary rounded" type="button" (click)="openModal()">Agregar</button>
             </h3>
-            <div class="card-body">
-                <table class ="table">
-                <thead>
-                    <th>Contenido</th>
-                    <th>Acciones</th>
-                </thead>
-                <tbody>
-                    <tr *ngFor= "let frase of frases">
-                        <td>{{frase.contenido}}</td>
-                        <td>
-                            <button [routerLink]="['/frase', frase.idFrase]" type="button" class="btn btn-primary rounded">Detalles</button>
-                            &nbsp;&nbsp;
-                            <button (click)="deleteFrase(frase.idFrase)" type="button" class="btn btn-warning rounded">Eliminar</button>
-                        </td>
-                    </tr>
-                </tbody>
-                </table>
-            </div>
+        </div>
+        <div class="card-body">
+            <table class ="table">
+            <thead>
+                <th>Contenido</th>
+                <th>Acciones</th>
+            </thead>
+            <tbody>
+                <tr *ngFor= "let frase of frases">
+                    <td>{{frase.contenido}}</td>
+                    <td>
+                        <button [routerLink]="['/frase', frase.idFrase]" type="button" class="btn btn-primary rounded">Detalles</button>
+                        &nbsp;&nbsp;
+                        <button (click)="deleteFrase(frase.idFrase)" type="button" class="btn btn-warning rounded">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
         </div>
     </div>
 </div>

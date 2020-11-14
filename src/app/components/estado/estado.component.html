@@ -2,24 +2,24 @@
     <div class="card mb-3">
         <div class="card-header">
             <h3>Estados <button style="float: right;" (click)="openRegistroModal()" type="button" class="btn btn-primary rounded">Agregar</button></h3>
-            <div class="card-body">
-                <table class ="table">
-                <thead>
-                    <th>Nombre</th> 
-                    <th>Acciones</th>
-                </thead>
-                <tbody>
-                    <tr *ngFor= "let estado of estados">
-                        <td>{{estado.nombre}}</td>
-                        <td>
-                            <button (click)="openEdicionModal(estado)" type="button" class="btn btn-primary rounded">Editar</button>
-                            &nbsp;&nbsp;
-                            <button (click)="deleteEstado(estado.idEstado)" type="button" class="btn btn-warning rounded">Eliminar</button>
-                        </td>
-                    </tr>
-                </tbody>
-                </table>
-            </div>
+        </div>
+        <div class="card-body">
+            <table class ="table">
+            <thead>
+                <th>Nombre</th> 
+                <th>Acciones</th>
+            </thead>
+            <tbody>
+                <tr *ngFor= "let estado of estados">
+                    <td>{{estado.nombre}}</td>
+                    <td>
+                        <button (click)="openEdicionModal(estado)" type="button" class="btn btn-primary rounded">Editar</button>
+                        &nbsp;&nbsp;
+                        <button (click)="deleteEstado(estado.idEstado)" type="button" class="btn btn-warning rounded">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
         </div>
     </div>
 </div>
