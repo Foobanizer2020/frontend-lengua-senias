@@ -1,17 +1,25 @@
 <div class="container p-3">
     <div class="card mb-3">
         <div class="card-header">
-            <h3>
-                Frase: {{ frase ? frase.idFrase : '' }}
+            <h3 *ngIf="frase">
+                Frase: {{frase.idFrase}}
                 <button style="float: right;" class="btn btn-primary rounded" type="button" (click)="openModal()">Editar</button>
             </h3>
             <div class="card-body">
-                <p>{{ frase ? frase.contenido : '' }}</p>
+                <div class="row">
+                    <div class="col-4" *ngIf="frase">
+                        <p><b>Contenido: </b>{{frase.contenido}}</p>
+                        <p><b>Categoría: </b><a routerLink="/home">{{frase.fcategoria}}</a></p>
+                        <p><b>Lengua: </b><a routerLink="/home">{{frase.lengua}}</a></p>
+                    </div>
+                    <div class="col">
+                        <video *ngIf="frase" width="600px" controls>
+                            <source src="http://localhost:8080/{{frase.gif}}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
             </div>
-            <video width="320" height="240" autoplay>
-                <source src="" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
         </div>
     </div>
 </div>

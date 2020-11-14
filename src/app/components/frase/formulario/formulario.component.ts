@@ -36,7 +36,7 @@ export class FormularioComponent implements OnInit {
     this.fraseForm = this.formBuilder.group({
       idFormulario: [''],
       contenido: ['', Validators.required],
-      gif: ['', Validators.required],
+      gif: [''],
       fcategoria: ['', Validators.required],
       lengua: ['', Validators.required],
     });
