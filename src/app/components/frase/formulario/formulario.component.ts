@@ -20,7 +20,7 @@ export class FormularioComponent implements OnInit {
   @Input() formStatus:String;
   fraseForm:FormGroup;
   submitted:Boolean;
-  frase:Frase;
+  @Input() frase:Frase;
   file:File;
   lenguas:Lengua[];
   fcategorias:Fcategoria[];
@@ -34,9 +34,9 @@ export class FormularioComponent implements OnInit {
 
   ngOnInit(): void {
     this.fraseForm = this.formBuilder.group({
-      idFormulario: [''],
+      idFrase: [''],
       contenido: ['', Validators.required],
-      gif: [''],
+      gif: ['', Validators.required],
       fcategoria: ['', Validators.required],
       lengua: ['', Validators.required],
     });
@@ -45,10 +45,11 @@ export class FormularioComponent implements OnInit {
   }
   
   open() {
+    this.submitted = false;
     if (this.formStatus == 'CREATE') {
       this.fraseForm.reset();
     } else {
-      // TODO: Asignar los datos de un objeto Frase al formulario.
+      this.fraseForm.setValue(this.frase);
     }
     $("#fraseModal").modal("show");
   }
@@ -79,11 +80,20 @@ export class FormularioComponent implements OnInit {
   }
 
   updateFrase() {
-    // TODO: Implementarlo xD
+    this.submitted = true;
+    
+    if (this.fraseForm.invalid) {
+      console.log("Formulario inválido.")
+      return;
+    }
+
+    this.fraseForm.controls['idFrase'].setValue(this.frase.idFrase);
+    this.convertFile(this);
   }
   
   fileSelected(event) {
     this.file  = <File> event.target.files[0];
+    this.fraseForm.controls['gif'].setValue('make-valid');
   }
 
   convertFile(thiss) {

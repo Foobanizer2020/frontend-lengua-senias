@@ -42,8 +42,11 @@
 
                     <label for="imagen">Video<span class="text-danger">*</span></label>
                     <div class="custom-file">
-                        <input type="file" accept="video/*" id="file" class="custom-file-input" (change)=fileSelected($event)>
+                        <input type="file" accept="video/*" id="file" class="custom-file-input" (change)=fileSelected($event) [ngClass]="{ 'is-invalid': submitted && f.gif.errors }">
                         <label class="custom-file-label" for="file">Selecciona una video...</label>
+                        <div *ngIf="submitted && f.gif.errors" class="invalid-feedback">
+                            <div *ngIf="f.gif.errors.required">Selecciona un video.</div>
+                        </div>
                     </div>
 
                     <p class="text-right"><span class="text-danger">*</span> Campos requeridos</p>

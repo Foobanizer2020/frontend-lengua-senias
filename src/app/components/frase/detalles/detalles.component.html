@@ -26,4 +26,6 @@
 
 <app-formulario-frase 
     [formStatus]="'UPDATE'"
+    [frase]="frase"
+    (notify)="reloadFrase()"
 ></app-formulario-frase>

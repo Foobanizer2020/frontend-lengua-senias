@@ -35,4 +35,12 @@ export class DetallesComponent implements OnInit {
     this.modalFormulario.open();
   }
 
+  reloadFrase() {
+    this.fraseService.getFrase(this.frase.idFrase).subscribe(
+      res => {
+        this.frase = res;
+      },
+      err => console.log(err)
+    );
+  } 
 }
