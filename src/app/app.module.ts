@@ -15,6 +15,8 @@ import { EstadoComponent } from './components/estado/estado.component';
 import { PaisComponent } from './components/pais/pais.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FcategoriaComponent } from './components/fcategoria/fcategoria.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { FcategoriaComponent } from './components/fcategoria/fcategoria.componen
     HomeComponent,
     EstadoComponent,
     PaisComponent,
-    FcategoriaComponent
+    FcategoriaComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
