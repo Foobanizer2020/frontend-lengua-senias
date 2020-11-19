@@ -55,7 +55,7 @@ export class FormularioComponent implements OnInit {
   }
 
   getLenguas() {
-    this.lenguaService.getLenguas().subscribe(
+    this.lenguaService.getAll().subscribe(
       res => this.lenguas = res,
       err => console.log(err)
     );

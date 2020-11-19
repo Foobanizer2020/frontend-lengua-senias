@@ -30,10 +30,7 @@
                         <label for="lengua">Lengua<span class="text-danger">*</span></label>
                         <select class="custom-select d-block w-100 rounded" id="lengua" formControlName="lengua" [ngClass]="{ 'is-invalid': submitted && f.lengua.errors }">
                             <option value="" hidden>Elige...</option>
-                            <option value="1">Lengua dummy 1</option>
-                            <option value="1">Lengua dummy 2</option>
-                            <option value="1">Lengua dummy 3</option>
-                            <option *ngFor="let lengua of lenguas" [value]="lengua.idLengua">{{ lengua.nombre + '(' + lengua.abreviatura + ')'}}</option>
+                            <option *ngFor="let lengua of lenguas" [value]="lengua.idLengua">{{ lengua.nombre + ' (' + lengua.abreviatura + ')'}}</option>
                         </select>
                         <div *ngIf="submitted && f.lengua.errors" class="invalid-feedback">
                             <div *ngIf="f.lengua.errors.required">Selecciona una lengua.</div>

@@ -18,6 +18,8 @@ import { FormularioComponent as FraseFormularioComponent } from './components/fr
 import { DetallesComponent as FraseDetallesComponent } from './components/frase/detalles/detalles.component';
 import { ListadoComponent as FraseListadoComponent } from './components/frase/listado/listado.component';
 import { FcategoriaComponent } from './components/fcategoria/fcategoria.component';
+import { LenguaComponent } from './components/lengua/lengua.component';
+import { IdiomaComponent } from './components/idioma/idioma.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { FcategoriaComponent } from './components/fcategoria/fcategoria.componen
     FraseFormularioComponent,
     FraseDetallesComponent,
     FraseListadoComponent,
-    FcategoriaComponent
+    FcategoriaComponent,
+    LenguaComponent,
+    IdiomaComponent
   ],
   imports: [
     BrowserModule,

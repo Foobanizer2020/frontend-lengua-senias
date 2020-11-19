@@ -8,6 +8,7 @@ import { ListadoComponent as ListadoFraseComponent } from './components/frase/li
 import { HomeComponent } from './components/home/home.component';
 import { PaisComponent } from './components/pais/pais.component';
 import {FcategoriaComponent} from './components/fcategoria/fcategoria.component';
+import { IdiomaComponent } from './components/idioma/idioma.component';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
@@ -18,7 +19,9 @@ const routes: Routes = [
   {path:'frase',component:ListadoFraseComponent},
   {path:'frase/:idFrase',component:DetallesFraseComponent},
   {path:'fcategoria', component:FcategoriaComponent},
-  {path:'', redirectTo:'/home', pathMatch: 'full'}
+  {path:'idioma', component:IdiomaComponent},
+  {path:'', redirectTo:'/home', pathMatch: 'full'},
+  {path:'**', redirectTo:'/home', pathMatch: 'full'}
 ];
 
 @NgModule({

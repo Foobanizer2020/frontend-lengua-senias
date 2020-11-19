@@ -108,7 +108,7 @@ export class EstadoComponent implements OnInit {
         });
       },
       err => console.error(err)
-    )
+    );
   }
 
   deleteEstado(id:number) {

@@ -110,7 +110,7 @@ export class RegistroComponent implements OnInit {
   }
 
   getIdiomas() {
-    this.idiomaService.getIdiomas().subscribe(
+    this.idiomaService.getAll().subscribe(
       res => {
         this.idiomas = res;
       }

@@ -1,4 +1,8 @@
+import { Pais } from './pais';
+
 export interface Idioma {
-    id:number;
+    idIdioma:number;
     nombre:string;
+    abreviatura:string;
+    paises:Pais[];
 }

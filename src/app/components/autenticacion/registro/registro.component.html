@@ -33,7 +33,7 @@
                         <label for="language">Idioma*</label>
                         <select class="custom-select d-block w-100 rounded" id="language" formControlName="idioma" [ngClass]="{ 'is-invalid': submitted && f.idioma.errors }">
                             <option value="" hidden>Elige...</option>
-                            <option *ngFor="let idioma of idiomas" [ngValue]="idioma.id">{{ idioma.nombre }}</option>
+                            <option *ngFor="let idioma of idiomas" [ngValue]="idioma.idIdioma">{{ idioma.nombre + ' (' + idioma.abreviatura + ')'}}</option>
                         </select>
                         <div *ngIf="submitted && f.idioma.errors" class="invalid-feedback">
                             <div *ngIf="f.idioma.errors.required">Selecciona un idioma válido</div>
