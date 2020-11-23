@@ -1,0 +1,38 @@
+<div class="modal" id="seniaModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ formStatus == 'CREATE' ? 'Agregar' : 'Actualizar'}} senia</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="seniaForm" (ngSubmit)="formStatus == 'CREATE' ? createSenia() : updateSenia()">
+                    <div class="form-group">
+                        <label for="contenido">Contenido<span class="text-danger">*</span></label>
+                        <input type="text" formControlName="contenido" class="form-control rounded" [ngClass]="{ 'is-invalid': submitted && f.contenido.errors }">
+                        <div *ngIf="submitted && f.contenido.errors" class="invalid-feedback">
+                            <div *ngIf="f.contenido.errors.required">El contenido de la senia es obligatorio</div>
+                        </div>
+                    </div>
+
+                    <label for="imagen">Video<span class="text-danger">*</span></label>
+                    <div class="custom-file">
+                        <input type="file" accept="video/*" id="file" class="custom-file-input" (change)=fileSelected($event) [ngClass]="{ 'is-invalid': submitted && f.gif.errors }">
+                        <label class="custom-file-label" for="file">Selecciona una video...</label>
+                        <div *ngIf="submitted && f.gif.errors" class="invalid-feedback">
+                            <div *ngIf="f.gif.errors.required">Selecciona un video.</div>
+                        </div>
+                    </div>
+
+                    <p class="text-right"><span class="text-danger">*</span> Campos requeridos</p>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary rounded">
+                            {{ formStatus == 'CREATE' ? 'Guardar' : 'Actualizar'}}
+                        </button>
+                        <button class="btn btn-warning rounded" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>        
+    </div>
+</div>

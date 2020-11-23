@@ -17,6 +17,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FcategoriaComponent } from './components/fcategoria/fcategoria.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { DetallesComponent } from './components/senia/detalles/detalles.component';
+import { FormularioComponent } from './components/senia/formulario/formulario.component';
+import { ListadoComponent } from './components/senia/listado/listado.component';
+import { CategoriaComponent } from './components/categoria/categoria.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import { HeaderComponent } from './components/header/header.component';
     PaisComponent,
     FcategoriaComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    DetallesComponent,
+    FormularioComponent,
+    ListadoComponent,
+    CategoriaComponent
   ],
   imports: [
     BrowserModule,
