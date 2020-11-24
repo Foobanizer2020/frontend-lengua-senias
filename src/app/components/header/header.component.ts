@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  doNotShow:Boolean;
+
   constructor() { }
 
   ngOnInit(): void {
+    if (window.location.pathname == '/login' || window.location.pathname  == '/registro') {
+      this.doNotShow = true;
+    }
   }
 
 }
