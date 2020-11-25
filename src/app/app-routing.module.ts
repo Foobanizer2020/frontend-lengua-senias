@@ -12,6 +12,7 @@ import {FcategoriaComponent} from './components/fcategoria/fcategoria.component'
 import { DetallesComponent as DetallesSeniaComponent} from './components/senia/detalles/detalles.component';
 import { ListadoComponent as ListadoSeniaComponent } from './components/senia/listado/listado.component';
 import { CategoriaComponent } from './components/categoria/categoria.component';
+import { LenguaComponent } from './components/lengua/lengua.component';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path:'senia',component:ListadoSeniaComponent},
   {path: 'categoria', component:CategoriaComponent},
   {path:'idioma', component:IdiomaComponent},
+  {path:'lengua', component:LenguaComponent},
   {path:'', redirectTo:'/home', pathMatch: 'full'},
   {path:'**', redirectTo:'/home', pathMatch: 'full'}
 ];

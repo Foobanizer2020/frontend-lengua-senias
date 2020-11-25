@@ -1,1 +1,78 @@
-<p>lengua works!</p>
+<div class="container p-3">
+    <div class="card mb-3">
+        <div class="card-header">
+            <h3>Lenguas <button style="float: right;" (click)="openRegistroModal()" type="button" class="btn btn-primary rounded">Agregar</button></h3>
+        </div>
+        <div class="card-body">
+            <table class ="table">
+            <thead>
+                <th>Nombre</th>
+                <th>Abreviatura</th>
+                <th>Acciones</th>
+            </thead>
+            <tbody>
+                <tr *ngFor= "let lengua of lenguas">
+                    <td>{{lengua.nombre}}</td>
+                    <td>{{lengua.abreviatura}}</td>
+                    <td>
+                        <button (click)="openEdicionModal(lengua)" type="button" class="btn btn-primary rounded">Editar</button>
+                        &nbsp;&nbsp;
+                        <button (click)="deleteLengua(lengua.idLengua)" type="button" class="btn btn-warning rounded">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="formularioModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ formStatus == 'CREATE' ? 'Agregar' : 'Actualizar'}} lengua</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="form" (ngSubmit)="formStatus == 'CREATE' ? createLengua() : updateLengua()">
+                    <div class="form-group">
+                        <label for="nombre">Nombre<span class="text-danger">*</span></label>
+                        <input type="text" formControlName="nombre" class="form-control rounded" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }">
+                        <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+                            <div *ngIf="f.nombre.errors.required">El nombre del lengua es obligatorio</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="abreviatura">Abreviatura<span class="text-danger">*</span></label>
+                        <input type="text" formControlName="abreviatura" class="form-control rounded" [ngClass]="{ 'is-invalid': submitted && f.abreviatura.errors }">
+                        <div *ngIf="submitted && f.abreviatura.errors" class="invalid-feedback">
+                            <div *ngIf="f.abreviatura.errors.required">La abreviatura del nombre es obligatoria</div>
+                        </div>
+                        <div *ngIf="submitted && f.abreviatura.errors" class="invalid-feedback">
+                            <div *ngIf="f.abreviatura.errors.maxlength || f.abreviatura.errors.minlength">La abreviatura debe ser de tamaño 2</div>
+                        </div>
+                    </div>
+
+                    <label>Paises asociados:</label>
+                    <div class="form-check">
+                        <div class="custom-control custom-checkbox" *ngFor="let pais of paises">
+                            <input class="custom-control-input" type="checkbox" value="{{pais.idPais}}" formControlName="paises" id="{{pais.idPais}}">
+                            <label class="custom-control-label" for="{{pais.idPais}}">
+                                {{pais.pais}}
+                            </label>
+                        </div>
+                    </div>
+
+                    <p class="text-right"><span class="text-danger">*</span> Campos requeridos</p>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary rounded">
+                            {{ formStatus == 'CREATE' ? 'Guardar' : 'Actualizar'}}
+                        </button>
+                        <button class="btn btn-warning rounded" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>        
+    </div>
+</div>
