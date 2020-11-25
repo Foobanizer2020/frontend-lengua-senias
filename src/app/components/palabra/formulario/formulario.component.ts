@@ -31,9 +31,11 @@ export class FormularioComponent implements OnInit {
     this.palabraForm = this.formBuilder.group({
       idPalabra: [''],
       nombre: ['', Validators.required],
-      contexto: ['', Validators.required],
+      contextoSenia: ['', Validators.required],
       definicion: ['', Validators.required],
-      categoria: ['', Validators.required]
+      categoria: this.formBuilder.group({
+        idCategoria: ['', Validators.required]
+      })
     });
     this.getCategorias();
   }
@@ -43,7 +45,7 @@ export class FormularioComponent implements OnInit {
     if (this.formStatus == 'CREATE') {
       this.palabraForm.reset();
     } else {
-      this.palabraForm.setValue(this.palabra);
+      this.palabraForm.patchValue(this.palabra);      
     }
     $("#palabraModal").modal("show");
   }

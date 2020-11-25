@@ -9,11 +9,10 @@
         <div class="card-body">
             <div *ngIf="palabra">
                 <p><b>Nombre: </b>{{palabra.nombre}}</p>
-                <p><b>Contexto: </b>{{palabra.contexto}}</p>
+                <p><b>Contexto: </b>{{palabra.contextoSenia}}</p>
                 <p><b>Definición: </b>{{palabra.definicion}}</p>
-                <p><b>Categoria: </b>{{palabra.categoria}}</p>
                 <!-- TODO: Poner el routerLink para redireccionar a detalles de la  categoría -->
-                <p><b>Categoría: </b><a routerLink="">{{palabra.categoria}}</a></p>
+                <p><b>Categoría: </b><a routerLink="">{{palabra.categoria.nombre}}</a></p>
             </div>
         </div>
     </div>

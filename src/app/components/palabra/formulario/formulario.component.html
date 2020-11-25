@@ -16,10 +16,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="contexto">Contexto<span class="text-danger">*</span></label>
-                        <input type="text" formControlName="contexto" class="form-control rounded" [ngClass]="{ 'is-invalid': submitted && f.contexto.errors }">
-                        <div *ngIf="submitted && f.contexto.errors" class="invalid-feedback">
-                            <div *ngIf="f.contexto.errors.required">El contexto de la palabra es obligatorio</div>
+                        <label for="contextoSenia">Contexto<span class="text-danger">*</span></label>
+                        <input type="text" formControlName="contextoSenia" class="form-control rounded" [ngClass]="{ 'is-invalid': submitted && f.contextoSenia.errors }">
+                        <div *ngIf="submitted && f.contextoSenia.errors" class="invalid-feedback">
+                            <div *ngIf="f.contextoSenia.errors.required">El contexto de la palabra es obligatorio</div>
                         </div>
                     </div>
 
@@ -31,15 +31,15 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" formGroupName="categoria">
                         <label for="categoria">Categoría<span class="text-danger">*</span></label>
-                        <select class="custom-select d-block w-100 rounded" id="categoria" formControlName="categoria" [ngClass]="{ 'is-invalid': submitted && f.categoria.errors }">
+                        <select class="custom-select d-block w-100 rounded" id="categoria" formControlName="idCategoria" [ngClass]="{ 'is-invalid': submitted && f.categoria.errors }">
                             <option value="" hidden>Elige...</option>
                             <option *ngFor="let categoria of categorias" [value]="categoria.idCategoria">{{ categoria.nombre }}</option>
                         </select>
                         <div *ngIf="submitted && f.categoria.errors" class="invalid-feedback">
                             <div *ngIf="f.categoria.errors.required">Selecciona una categoría.</div>
-                        </div>
+                        </div>                        
                     </div>
 
                     <p class="text-right"><span class="text-danger">*</span> Campos requeridos</p>
