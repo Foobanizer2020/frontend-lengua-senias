@@ -1,0 +1,33 @@
+<div class="container p-3">
+    <div class="card mb-3">
+        <div class="card-header">
+            <h3>
+                Palabras
+                <button style="float: right;" class="btn btn-primary rounded" type="button" (click)="openModal()">Agregar</button>
+            </h3>
+        </div>
+        <div class="card-body">
+            <table class ="table">
+            <thead>
+                <th>Contenido</th>
+                <th>Acciones</th>
+            </thead>
+            <tbody>
+                <tr *ngFor= "let palabra of palabras">
+                    <td>{{palabra.nombre}}</td>
+                    <td>
+                        <button [routerLink]="['/palabra', palabra.idPalabra]" type="button" class="btn btn-primary rounded">Detalles</button>
+                        &nbsp;&nbsp;
+                        <button (click)="deletePalabra(palabra.idPalabra)" type="button" class="btn btn-warning rounded">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<app-formulario-palabra 
+    [formStatus]="'CREATE'"
+    (notify)="getPalabras()"
+></app-formulario-palabra>

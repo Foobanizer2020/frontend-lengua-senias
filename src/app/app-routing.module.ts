@@ -5,6 +5,8 @@ import { RegistroComponent } from './components/autenticacion/registro/registro.
 import { EstadoComponent } from './components/estado/estado.component';
 import { DetallesComponent as DetallesFraseComponent } from './components/frase/detalles/detalles.component';
 import { ListadoComponent as ListadoFraseComponent } from './components/frase/listado/listado.component';
+import { DetallesComponent as DetallesPalabraComponent } from './components/palabra/detalles/detalles.component';
+import { ListadoComponent as ListadoPalabraComponent } from './components/palabra/listado/listado.component';
 import { HomeComponent } from './components/home/home.component';
 import { PaisComponent } from './components/pais/pais.component';
 import { IdiomaComponent } from './components/idioma/idioma.component';
@@ -22,6 +24,8 @@ const routes: Routes = [
   {path:'pais',component:PaisComponent},
   {path:'frase',component:ListadoFraseComponent},
   {path:'frase/:idFrase',component:DetallesFraseComponent},
+  {path:'palabra',component:ListadoPalabraComponent},
+  {path:'palabra/:idPalabra',component:DetallesPalabraComponent},
   {path:'fcategoria', component:FcategoriaComponent},
   {path:'senia/:idSenia', component:DetallesSeniaComponent},
   {path:'senia',component:ListadoSeniaComponent},

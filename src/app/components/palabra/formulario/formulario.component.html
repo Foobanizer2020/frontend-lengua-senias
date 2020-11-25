@@ -1,0 +1,56 @@
+<div class="modal" id="palabraModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ formStatus == 'CREATE' ? 'Agregar' : 'Actualizar'}} palabra</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="palabraForm" (ngSubmit)="formStatus == 'CREATE' ? createPalabra() : updatePalabra()">
+                    <div class="form-group">
+                        <label for="nombre">Nombre<span class="text-danger">*</span></label>
+                        <input type="text" formControlName="nombre" class="form-control rounded" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }">
+                        <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+                            <div *ngIf="f.nombre.errors.required">El nombre de la palabra es obligatorio</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contexto">Contexto<span class="text-danger">*</span></label>
+                        <input type="text" formControlName="contexto" class="form-control rounded" [ngClass]="{ 'is-invalid': submitted && f.contexto.errors }">
+                        <div *ngIf="submitted && f.contexto.errors" class="invalid-feedback">
+                            <div *ngIf="f.contexto.errors.required">El contexto de la palabra es obligatorio</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="definicion">Definición<span class="text-danger">*</span></label>
+                        <input type="text" formControlName="definicion" class="form-control rounded" [ngClass]="{ 'is-invalid': submitted && f.definicion.errors }">
+                        <div *ngIf="submitted && f.definicion.errors" class="invalid-feedback">
+                            <div *ngIf="f.definicion.errors.required">El definicion de la palabra es obligatorio</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="categoria">Categoría<span class="text-danger">*</span></label>
+                        <select class="custom-select d-block w-100 rounded" id="categoria" formControlName="categoria" [ngClass]="{ 'is-invalid': submitted && f.categoria.errors }">
+                            <option value="" hidden>Elige...</option>
+                            <option *ngFor="let categoria of categorias" [value]="categoria.idCategoria">{{ categoria.nombre }}</option>
+                        </select>
+                        <div *ngIf="submitted && f.categoria.errors" class="invalid-feedback">
+                            <div *ngIf="f.categoria.errors.required">Selecciona una categoría.</div>
+                        </div>
+                    </div>
+
+                    <p class="text-right"><span class="text-danger">*</span> Campos requeridos</p>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary rounded">
+                            {{ formStatus == 'CREATE' ? 'Guardar' : 'Actualizar'}}
+                        </button>
+                        <button class="btn btn-warning rounded" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>        
+    </div>
+</div>

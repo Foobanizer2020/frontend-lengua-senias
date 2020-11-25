@@ -1,0 +1,26 @@
+<div class="container p-3">
+    <div class="card mb-3">
+        <div class="card-header">
+            <h3 *ngIf="palabra">
+                Palabra: {{palabra.idPalabra}}
+                <button style="float: right;" class="btn btn-primary rounded" type="button" (click)="openModal()">Editar</button>
+            </h3>
+        </div>
+        <div class="card-body">
+            <div *ngIf="palabra">
+                <p><b>Nombre: </b>{{palabra.nombre}}</p>
+                <p><b>Contexto: </b>{{palabra.contexto}}</p>
+                <p><b>Definición: </b>{{palabra.definicion}}</p>
+                <p><b>Categoria: </b>{{palabra.categoria}}</p>
+                <!-- TODO: Poner el routerLink para redireccionar a detalles de la  categoría -->
+                <p><b>Categoría: </b><a routerLink="">{{palabra.categoria}}</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-formulario-palabra 
+    [formStatus]="'UPDATE'"
+    [palabra]="palabra"
+    (notify)="reloadPalabra()"
+></app-formulario-palabra>

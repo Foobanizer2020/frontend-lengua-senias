@@ -17,6 +17,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormularioComponent as FraseFormularioComponent } from './components/frase/formulario/formulario.component';
 import { DetallesComponent as FraseDetallesComponent } from './components/frase/detalles/detalles.component';
 import { ListadoComponent as FraseListadoComponent } from './components/frase/listado/listado.component';
+
+import { FormularioComponent as PalabraFormularioComponent } from './components/palabra/formulario/formulario.component';
+import { DetallesComponent as PalabraDetallesComponent } from './components/palabra/detalles/detalles.component';
+import { ListadoComponent as PalabraListadoComponent } from './components/palabra/listado/listado.component';
+
 import { FcategoriaComponent } from './components/fcategoria/fcategoria.component';
 import { LenguaComponent } from './components/lengua/lengua.component';
 import { IdiomaComponent } from './components/idioma/idioma.component';
@@ -39,6 +44,9 @@ import { CategoriaComponent } from './components/categoria/categoria.component';
     FraseFormularioComponent,
     FraseDetallesComponent,
     FraseListadoComponent,
+    PalabraFormularioComponent,
+    PalabraDetallesComponent,
+    PalabraListadoComponent,
     LenguaComponent,
     IdiomaComponent,
     FcategoriaComponent,
