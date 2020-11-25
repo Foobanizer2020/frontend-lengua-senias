@@ -20,6 +20,12 @@ import { ListadoComponent as FraseListadoComponent } from './components/frase/li
 import { FcategoriaComponent } from './components/fcategoria/fcategoria.component';
 import { LenguaComponent } from './components/lengua/lengua.component';
 import { IdiomaComponent } from './components/idioma/idioma.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { DetallesComponent } from './components/senia/detalles/detalles.component';
+import { FormularioComponent } from './components/senia/formulario/formulario.component';
+import { ListadoComponent } from './components/senia/listado/listado.component';
+import { CategoriaComponent } from './components/categoria/categoria.component';
 
 @NgModule({
   declarations: [
@@ -33,9 +39,15 @@ import { IdiomaComponent } from './components/idioma/idioma.component';
     FraseFormularioComponent,
     FraseDetallesComponent,
     FraseListadoComponent,
-    FcategoriaComponent,
     LenguaComponent,
-    IdiomaComponent
+    IdiomaComponent,
+    FcategoriaComponent,
+    FooterComponent,
+    HeaderComponent,
+    DetallesComponent,
+    FormularioComponent,
+    ListadoComponent,
+    CategoriaComponent
   ],
   imports: [
     BrowserModule,
