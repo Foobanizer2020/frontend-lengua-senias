@@ -12,7 +12,8 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if (window.location.pathname == '/login' || window.location.pathname  == '/registro') {
+    const excludedRoutes = ['/login', '/registro', '/recuperacion'];
+    if (excludedRoutes.includes(window.location.pathname)) {
       this.doNotShow = true;
     }
   }
