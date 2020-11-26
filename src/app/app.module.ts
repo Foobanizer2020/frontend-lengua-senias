@@ -31,6 +31,7 @@ import { DetallesComponent } from './components/senia/detalles/detalles.componen
 import { FormularioComponent } from './components/senia/formulario/formulario.component';
 import { ListadoComponent } from './components/senia/listado/listado.component';
 import { CategoriaComponent } from './components/categoria/categoria.component';
+import { RecuperacionComponent } from './components/autenticacion/recuperacion/recuperacion.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { CategoriaComponent } from './components/categoria/categoria.component';
     DetallesComponent,
     FormularioComponent,
     ListadoComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    RecuperacionComponent
   ],
   imports: [
     BrowserModule,

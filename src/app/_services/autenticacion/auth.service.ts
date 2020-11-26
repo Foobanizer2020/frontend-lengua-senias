@@ -24,4 +24,8 @@ export class AuthService {
   registro(usuario:Usuario): Observable<any> {
     return this.http.post(api_uri + '/registro', usuario);
   }
+
+  recuperacion(credentials:Credentials) {
+    return this.http.post(api_uri + '/recuperacion', credentials);
+  }
 }

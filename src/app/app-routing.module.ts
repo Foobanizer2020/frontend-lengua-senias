@@ -15,11 +15,13 @@ import { DetallesComponent as DetallesSeniaComponent} from './components/senia/d
 import { ListadoComponent as ListadoSeniaComponent } from './components/senia/listado/listado.component';
 import { CategoriaComponent } from './components/categoria/categoria.component';
 import { LenguaComponent } from './components/lengua/lengua.component';
+import { RecuperacionComponent } from './components/autenticacion/recuperacion/recuperacion.component';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
   {path:'registro', component:RegistroComponent},
   {path:'login', component:LoginComponent},
+  {path:'recuperacion', component:RecuperacionComponent},
   {path:'estado', component:EstadoComponent},
   {path:'pais',component:PaisComponent},
   {path:'frase',component:ListadoFraseComponent},
