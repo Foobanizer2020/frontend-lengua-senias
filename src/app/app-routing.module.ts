@@ -16,6 +16,10 @@ import { ListadoComponent as ListadoSeniaComponent } from './components/senia/li
 import { CategoriaComponent } from './components/categoria/categoria.component';
 import { LenguaComponent } from './components/lengua/lengua.component';
 import { RecuperacionComponent } from './components/autenticacion/recuperacion/recuperacion.component';
+import { IndiceComponent as IndiceFraseComponent} from './components/frase/indice/indice.component';
+import { IndiceComponent as IndicePalabraComponent} from './components/palabra/indice/indice.component';
+
+
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
@@ -26,6 +30,8 @@ const routes: Routes = [
   {path:'pais',component:PaisComponent},
   {path:'frase',component:ListadoFraseComponent},
   {path:'frase/:idFrase',component:DetallesFraseComponent},
+  {path:'indice_frases',component:IndiceFraseComponent},
+  {path:'indice_palabras',component:IndicePalabraComponent},
   {path:'palabra',component:ListadoPalabraComponent},
   {path:'palabra/:idPalabra',component:DetallesPalabraComponent},
   {path:'fcategoria', component:FcategoriaComponent},

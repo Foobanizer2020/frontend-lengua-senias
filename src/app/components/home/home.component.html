@@ -1,8 +1,36 @@
-<p>home works!</p>
-<div *ngIf="!isLoggedIn">
-    <a routerLink="/login">Iniciar sesión</a><br>
-    <a routerLink="/registro">Registrarse</a>
-</div>
-<div *ngIf="isLoggedIn">
-    <a (click)="signOut()" routerLink="">Cerrar sesión</a>
-</div>
+<!doctype html>
+<html lang="es_MX">
+
+<head>
+    <title>LenguaDeSeñas.net</title>
+</head>
+
+<body>
+    <div class="container-fluid text-center">
+        <div class="row justify-content-center">
+            <div class="col-12 flex">
+
+                <div class="container-fluid" style="margin-top: 20vh;">
+
+                    <img src="./assets/img/lsm.png" class="image" style="width: 30vw;" alt="LSM logo">
+
+                    <div class="container h-50 border border-primary rounded" style="margin-top: 30px; margin-bottom: 30px; min-height: 2vw; width: 60vw; background-color: var(--white); box-shadow: var(--accent);">
+                        <!-- Implementar búsqueda mediante GET (?tipo=("palabra" ó "frase")&txt=...) -->
+                        <form class="form-inline">
+                            <i class="fa fa-search" aria-hidden="true" style="width: 5%;"></i>
+                            <label hidden for="sb1">Barra de búsqueda</label>
+                            <input class="form-control" maxlength="2048" name="m-searchbar" id="sb1" type="text" aria-autocomplete="both" aria-haspopup="false" autocapitalize="off" autocomplete="off" autocorrect="off" autofocus="" role="combobox" spellcheck="false" title="Buscar"
+                                value="" aria-label="Buscar" style="border: hidden; box-shadow: none; height: 46px; width: 90%;">
+                            <i class="fa fa-times" aria-hidden="true" style="width: 5%;"></i>
+                        </form>
+                    </div>
+                    <div class="container" role="group">
+                        <button type="button" class="btn btn-outline-primary rounded" style="margin-right: 7.5px;">Buscar Palabras</button>
+                        <button type="button" class="btn btn-outline-primary rounded" style="margin-left: 7.5px;">Buscar Frases</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
