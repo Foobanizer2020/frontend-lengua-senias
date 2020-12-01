@@ -18,6 +18,8 @@ import { LenguaComponent } from './components/lengua/lengua.component';
 import { RecuperacionComponent } from './components/autenticacion/recuperacion/recuperacion.component';
 import { IndiceComponent as IndiceFraseComponent} from './components/frase/indice/indice.component';
 import { IndiceComponent as IndicePalabraComponent} from './components/palabra/indice/indice.component';
+import { ErrorComponent } from './components/error/error.component';
+
 
 
 
@@ -40,8 +42,9 @@ const routes: Routes = [
   {path: 'categoria', component:CategoriaComponent},
   {path:'idioma', component:IdiomaComponent},
   {path:'lengua', component:LenguaComponent},
+  {path:'error', component:ErrorComponent},
   {path:'', redirectTo:'/home', pathMatch: 'full'},
-  {path:'**', redirectTo:'/home', pathMatch: 'full'}
+  {path:'**', redirectTo:'/error', pathMatch: 'full'}
 ];
 
 @NgModule({

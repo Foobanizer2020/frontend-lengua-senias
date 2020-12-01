@@ -33,6 +33,7 @@ import { ListadoComponent } from './components/senia/listado/listado.component';
 import { CategoriaComponent } from './components/categoria/categoria.component';
 import { RecuperacionComponent } from './components/autenticacion/recuperacion/recuperacion.component';
 import { IndiceComponent } from './components/frase/indice/indice.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { IndiceComponent } from './components/frase/indice/indice.component';
     ListadoComponent,
     CategoriaComponent,
     RecuperacionComponent,
-    IndiceComponent
+    IndiceComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
