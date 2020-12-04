@@ -15,7 +15,7 @@ export class EstadoComponent implements OnInit {
 
   estados:Estado[];
   estado:Estado;
-  idPais = 1; // TODO: Cambiar a un @Input
+  @Input() idPais:number;
   estadoForm: FormGroup;
   submitted:Boolean = false;
   formStatus:String;
