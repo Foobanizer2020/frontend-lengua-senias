@@ -38,8 +38,6 @@ export class LoginComponent implements OnInit {
       return
     }
 
-    console.log("Mandando al server: \n", this.loginForm.value);
-
     this.authService.login(this.loginForm.value).subscribe(
       res => {
         this.tokenStorage.saveToken(res.token);
