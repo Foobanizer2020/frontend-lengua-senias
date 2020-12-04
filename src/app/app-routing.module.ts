@@ -19,9 +19,7 @@ import { RecuperacionComponent } from './components/autenticacion/recuperacion/r
 import { IndiceComponent as IndiceFraseComponent} from './components/frase/indice/indice.component';
 import { IndiceComponent as IndicePalabraComponent} from './components/palabra/indice/indice.component';
 import { ErrorComponent } from './components/error/error.component';
-
-
-
+import { FavoritosComponent } from './components/favoritos/favoritos.component';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
@@ -39,10 +37,11 @@ const routes: Routes = [
   {path:'fcategoria', component:FcategoriaComponent},
   {path:'senia/:idSenia', component:DetallesSeniaComponent},
   {path:'senia',component:ListadoSeniaComponent},
-  {path: 'categoria', component:CategoriaComponent},
+  {path:'categoria', component:CategoriaComponent},
   {path:'idioma', component:IdiomaComponent},
   {path:'lengua', component:LenguaComponent},
   {path:'error', component:ErrorComponent},
+  {path:'favoritos', component:FavoritosComponent},
   {path:'', redirectTo:'/home', pathMatch: 'full'},
   {path:'**', redirectTo:'/error', pathMatch: 'full'}
 ];

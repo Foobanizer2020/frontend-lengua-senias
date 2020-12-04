@@ -1,0 +1,69 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-1 col-xl-2 d-none d-lg-block d-xl-block flex"> </div>
+
+        <!-- Columna de Contenido -->
+        <div class="col-lg-7 col-xl-6 d-block" style="max-width: 640px;">
+            <h1>Palabras y frases favoritas:</h1>
+
+            <div class="accordion" id="accordionFrases">
+                <!-- Autogenerar tarjetas de acordíon por letra del abecedario------------------->
+                <div class="card">
+                    <div class="card-header" id="headingA">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFrases" aria-expanded="false" aria-controls="collapseA">
+                            Frases
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseFrases" class="collapse" aria-labelledby="headingA" data-parent="#accordionFrases">
+                        <div class="card-body">
+                            <!-- Obtener frases por índice alfabético por API REST-->
+                            <div class="card" *ngFor="let frase of favoritos.frases">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    {{ frase.contenido }} 
+                                    <span class="pull-right"><i class="fa fa-heart heart" aria-hidden="true" (click)="eliminarFavorito(frase.idFrase, 'FAVORITO.FRASE')"></i></span>
+                                </h5>
+                                <div class="card-text">Categoria: <a routerLink="#">{{ frase.fcategoria }}</a></div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" id="headingA">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapsePalabras" aria-expanded="false" aria-controls="collapseA">
+                            Palabras
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapsePalabras" class="collapse" aria-labelledby="headingA" data-parent="#accordionFrases">
+                        <div class="card-body">
+                            <!-- Obtener frases por índice alfabético por API REST-->
+                            <div class="card" *ngFor="let palabra of favoritos.palabras">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        {{ palabra.nombre }} 
+                                        <span class="pull-right"><i class="fa fa-heart heart" aria-hidden="true" (click)="eliminarFavorito(palabra.idPalabra, 'FAVORITO.PALABRA')"></i></span>
+                                    </h5>
+                                    <div class="card-text">Categoria: <a routerLink="#">{{ palabra.categoria.nombre }}</a></div>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ------------------------------------------------------------------------->
+            </div>
+        </div>
+
+        <!-- Columna de anuncios -->
+        <div class="col-lg-3 col-xl-2 d-none d-lg-block d-xl-block">
+            <img src="./assets/img/300x600.png" class="image" style="width: 300; height: 600;" alt="Anuncio">
+        </div>
+
+        <div class="col-lg-1 col-xl-2 d-none d-lg-block d-xl-block flex"> </div>
+    </div>
+</div>

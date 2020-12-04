@@ -34,6 +34,7 @@ import { CategoriaComponent } from './components/categoria/categoria.component';
 import { RecuperacionComponent } from './components/autenticacion/recuperacion/recuperacion.component';
 import { IndiceComponent } from './components/frase/indice/indice.component';
 import { ErrorComponent } from './components/error/error.component';
+import { FavoritosComponent } from './components/favoritos/favoritos.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { ErrorComponent } from './components/error/error.component';
     CategoriaComponent,
     RecuperacionComponent,
     IndiceComponent,
-    ErrorComponent
+    ErrorComponent,
+    FavoritosComponent
   ],
   imports: [
     BrowserModule,
