@@ -44,6 +44,6 @@ export class TokenStorageService {
 
   public isLoggedIn() {
     const token = this.getToken();
-    return token && this.jwtHelper.isTokenExpired(token); 
+    return token && !this.jwtHelper.isTokenExpired(token); 
   }
 }

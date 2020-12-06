@@ -26,7 +26,8 @@
                 </div>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="http://localhost:4200/login">Inicia Sesión <span class="sr-only">(current)</span></a>
+                <a *ngIf="loggedIn" class="nav-link" (click)="cerrarSesion()" href="">Cerrar Sesión</a>
+                <a *ngIf="!loggedIn" class="nav-link" href="http://localhost:4200/login">Iniciar Sesión</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-md-0">
