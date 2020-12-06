@@ -20,6 +20,8 @@ import { IndiceComponent as IndiceFraseComponent} from './components/frase/indic
 import { IndiceComponent as IndicePalabraComponent} from './components/palabra/indice/indice.component';
 import { ErrorComponent } from './components/error/error.component';
 import { FavoritosComponent } from './components/favoritos/favoritos.component';
+import { LoggedService } from './_services/guards/logged.service';
+import { AdminService } from './_services/guards/admin.service';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
@@ -27,7 +29,7 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'recuperacion', component:RecuperacionComponent},
   {path:'estado', component:EstadoComponent},
-  {path:'pais',component:PaisComponent},
+  {path:'pais',component:PaisComponent, canActivate:[LoggedService, AdminService]},
   {path:'frase',component:ListadoFraseComponent},
   {path:'frase/:idFrase',component:DetallesFraseComponent},
   {path:'indice_frases',component:IndiceFraseComponent},

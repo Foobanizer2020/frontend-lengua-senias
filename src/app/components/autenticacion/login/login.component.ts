@@ -42,7 +42,8 @@ export class LoginComponent implements OnInit {
       res => {
         this.tokenStorage.saveToken(res.token);
         this.tokenStorage.saveUser(res);
-        this.router.navigateByUrl('home');
+        window.location.href = '/home';
+        //this.router.navigateByUrl('home');
       },
       err => {
         this.loginFailed = true;

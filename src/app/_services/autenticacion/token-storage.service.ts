@@ -46,4 +46,10 @@ export class TokenStorageService {
     const token = this.getToken();
     return token && !this.jwtHelper.isTokenExpired(token); 
   }
+
+  public isAdmin() {
+    const token = this.getToken();
+    const roles = this.jwtHelper.decodeToken(this.getToken()).roles;
+    return token && roles.nombre_tipo_usuario == "ADMINISTRADOR";
+  }
 }
