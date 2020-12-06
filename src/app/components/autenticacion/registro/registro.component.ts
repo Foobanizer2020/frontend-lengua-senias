@@ -89,7 +89,7 @@ export class RegistroComponent implements OnInit {
           res => {
             this.tokenStorage.saveToken(res.token);
             this.tokenStorage.saveUser(res);
-            this.router.navigateByUrl('home');
+            window.location.href = '/home';
           },
           err => {
             this.registerFailed = true;
