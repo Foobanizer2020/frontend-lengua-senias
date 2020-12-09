@@ -23,6 +23,7 @@ import { FavoritosComponent } from './components/favoritos/favoritos.component';
 import { LoggedService } from './_services/guards/logged.service';
 import { AdminService } from './_services/guards/admin.service';
 import { ListadoComponent as GeneralFrasesListadoComponent } from './components/general-frases/listado/listado.component';
+import { ListadoComponent as GeneralPalabrasListadoComponent } from './components/general-palabras/listado/listado.component';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
@@ -32,6 +33,7 @@ const routes: Routes = [
   {path:'estado', component:EstadoComponent},
   {path:'pais',component:PaisComponent, canActivate:[LoggedService, AdminService]},
   {path:'general-frases',component:GeneralFrasesListadoComponent},
+  {path:'general-palabras',component:GeneralPalabrasListadoComponent},
   {path:'frase',component:ListadoFraseComponent},
   {path:'frase/:idFrase',component:DetallesFraseComponent},
   {path:'indice_frases',component:IndiceFraseComponent},
@@ -45,7 +47,7 @@ const routes: Routes = [
   {path:'idioma', component:IdiomaComponent},
   {path:'lengua', component:LenguaComponent},
   {path:'error', component:ErrorComponent},
-  {path:'favoritos', component:FavoritosComponent},
+  {path:'favoritos', component:FavoritosComponent, canActivate:[LoggedService]},
   {path:'', redirectTo:'/home', pathMatch: 'full'},
   {path:'**', redirectTo:'/error', pathMatch: 'full'}
 ];
