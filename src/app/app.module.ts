@@ -36,6 +36,8 @@ import { IndiceComponent } from './components/frase/indice/indice.component';
 import { ErrorComponent } from './components/error/error.component';
 import { FavoritosComponent } from './components/favoritos/favoritos.component';
 
+import { ListadoComponent as GeneralFrasesListadoComponent } from './components/general-frases/listado/listado.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +65,8 @@ import { FavoritosComponent } from './components/favoritos/favoritos.component';
     RecuperacionComponent,
     IndiceComponent,
     ErrorComponent,
-    FavoritosComponent
+    FavoritosComponent,
+    GeneralFrasesListadoComponent
   ],
   imports: [
     BrowserModule,

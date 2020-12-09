@@ -22,6 +22,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { FavoritosComponent } from './components/favoritos/favoritos.component';
 import { LoggedService } from './_services/guards/logged.service';
 import { AdminService } from './_services/guards/admin.service';
+import { ListadoComponent as GeneralFrasesListadoComponent } from './components/general-frases/listado/listado.component';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path:'recuperacion', component:RecuperacionComponent},
   {path:'estado', component:EstadoComponent},
   {path:'pais',component:PaisComponent, canActivate:[LoggedService, AdminService]},
+  {path:'general-frases',component:GeneralFrasesListadoComponent},
   {path:'frase',component:ListadoFraseComponent},
   {path:'frase/:idFrase',component:DetallesFraseComponent},
   {path:'indice_frases',component:IndiceFraseComponent},
