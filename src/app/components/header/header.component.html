@@ -7,13 +7,13 @@
     <div class="collapse navbar-collapse" id="navbarsExample05">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost:4200/categoria">Categorías <span class="sr-only">(current)</span></a>
+                <a class="nav-link" routerLink="categoria">Categorías <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Listas</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown05">
-                    <a class="dropdown-item" href="http://localhost:4200/indice_palabras">Palabras</a>
-                    <a class="dropdown-item" href="http://localhost:4200/indice_frases">Frases</a>
+                    <a class="dropdown-item" routerLink="indice_palabras">Palabras</a>
+                    <a class="dropdown-item" routerLink="indice_frases">Frases</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -27,7 +27,7 @@
             </li>
             <li class="nav-item active">
                 <a *ngIf="loggedIn" class="nav-link" (click)="cerrarSesion()" href="">Cerrar Sesión</a>
-                <a *ngIf="!loggedIn" class="nav-link" href="http://localhost:4200/login">Iniciar Sesión</a>
+                <a *ngIf="!loggedIn" class="nav-link" routerLink="login">Iniciar Sesión</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-md-0">
