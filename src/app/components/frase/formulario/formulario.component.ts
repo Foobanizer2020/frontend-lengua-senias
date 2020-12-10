@@ -63,7 +63,10 @@ export class FormularioComponent implements OnInit {
 
   getFcategorias() {
     this.fcategoriaService.getFcategorias().subscribe(
-      res => this.fcategorias = res,
+      res => {
+        this.fcategorias = res;
+        console.log(this.fcategorias);
+      },
       err => console.log(err)
     );
   }
