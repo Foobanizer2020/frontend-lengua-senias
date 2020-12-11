@@ -22,7 +22,7 @@
 
                             <td>
                                 <div>
-                                    <button (click)="openEdicionModal(pais)" type="button" class="btn btn-primary rounded">Editar </button>
+                                    <button [routerLink]="['/pais', pais.idPais]" type="button" class="btn btn-primary rounded">Detalles </button>
                                     &nbsp;&nbsp;
                                     <button (click)="deletePais(pais.idPais)" type="button" class="btn btn-warning rounded">Eliminar </button>
                             </div>
@@ -48,10 +48,10 @@
 
                     <form [formGroup]="paisForm" (ngSubmit)="createPais()">
                         <div class="form-group">
-                            <label for="nombre">Nombre<span class="text-danger">*</span></label>
-                            <input type="text" formControlName="nombre" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }">
-                            <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
-                                <div *ngIf="f.nombre.errors.required">El nombre del pais es obligatorio</div>
+                            <label for="pais">Nombre<span class="text-danger">*</span></label>
+                            <input type="text" formControlName="pais" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pais.errors }">
+                            <div *ngIf="submitted && f.pais.errors" class="invalid-feedback">
+                                <div *ngIf="f.pais.errors.required">El nombre del pais es obligatorio</div>
                             </div>
                         </div>
                 
@@ -64,7 +64,7 @@
                         </div>
                         <p class="text-right"><span class="text-danger">*</span> Campos requeridos</p>
                         <div class="modal-footer">
-                            <button type="button"  class="btn btn-primary rounded">Guardar</button>
+                            <button type="submit"  class="btn btn-primary rounded">Guardar</button>
                             <button type="button"  class="btn btn-warning rounded"data-dismiss="modal" >Cerrar</button>
             
                         </div>

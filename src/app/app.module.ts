@@ -38,6 +38,7 @@ import { FavoritosComponent } from './components/favoritos/favoritos.component';
 
 import { ListadoComponent as GeneralFrasesListadoComponent } from './components/general-frases/listado/listado.component';
 import { ListadoComponent as GeneralPalabrasListadoComponent } from './components/general-palabras/listado/listado.component';
+import { PaisEstadoComponent } from './components/pais-estado/pais-estado.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ListadoComponent as GeneralPalabrasListadoComponent } from './component
     HomeComponent,
     EstadoComponent,
     PaisComponent,
+    PaisEstadoComponent,
     FraseFormularioComponent,
     FraseDetallesComponent,
     FraseListadoComponent,

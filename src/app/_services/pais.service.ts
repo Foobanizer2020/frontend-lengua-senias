@@ -24,7 +24,7 @@ export class PaisService {
   }
 
   updatePais(pais:Pais){
-    return this.http.put(this.API_URI+pais.idPais,pais);
+    return this.http.put(this.API_URI+'/'+pais.idPais, pais);
   }
 
   deletePais(id: number){

@@ -5,6 +5,7 @@ import { PaisService } from '../../_services/pais.service';
 
 import  { FormBuilder, Validators, FormGroup} from '@angular/forms';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 
 
@@ -28,14 +29,15 @@ export class PaisComponent implements OnInit {
 
   constructor( 
     private paisService: PaisService, 
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
      // Inicie el formulario vacio
      this.paisForm = this.formBuilder.group({
       "id": [''],
-      "nombre": ['', Validators.required],
+      "pais": ['', Validators.required],
       "abreviatura": ['']
     });
 
@@ -148,8 +150,5 @@ export class PaisComponent implements OnInit {
   openModalPais(){    
     this.paisForm.reset();    
     $("#paisModal").modal("show");  
-
-
   }
-
 }

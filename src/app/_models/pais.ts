@@ -1,5 +1,5 @@
 export interface Pais {
     idPais:number;
-    nombre:string;
+    pais:string;
     abreviatura: string;
 }

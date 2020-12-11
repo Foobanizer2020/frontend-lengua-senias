@@ -49,6 +49,9 @@ export class TokenStorageService {
 
   public isAdmin() {
     const token = this.getToken();
+    if(! this.isLoggedIn()) {
+      return false;
+    }
     const roles = this.jwtHelper.decodeToken(this.getToken()).roles;
     return token && roles.nombre_tipo_usuario == "ADMINISTRADOR";
   }
