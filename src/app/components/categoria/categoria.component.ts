@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { TokenStorageService }from 'src/app/_services/autenticacion/token-storage.service'
 import {Categoria} from '../../_models/categoria';
 import {CategoriaService} from '../../_services/categoria.service';
 
@@ -21,13 +21,16 @@ export class CategoriaComponent implements OnInit {
   categoriaForm: FormGroup;
   submitted:Boolean = false;
   formStatus:String;
+  isAdmin:Boolean;
 
   messageTime:number = 1000;
 
 
   constructor(
     private categoriaService:CategoriaService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private tokenService:TokenStorageService
+
   ) { }
 
   ngOnInit(): void {
@@ -37,6 +40,7 @@ export class CategoriaComponent implements OnInit {
     });
     
     this.getCategorias();
+    this.isAdmin = this.tokenService.isAdmin();
   }
 
   getCategorias(){
@@ -78,6 +82,12 @@ export class CategoriaComponent implements OnInit {
     this.categoriaForm.reset();
     this.submitted = false;
     this.formStatus = "CREATE";
+    $("#categoriaModal").modal("show");
+  }
+  openEdicionModal(categoria: Categoria) {
+    this.categoriaForm.reset();
+    this.submitted = false;
+    this.formStatus = "UPDATE";
     $("#categoriaModal").modal("show");
   }
   createCategoria(){
