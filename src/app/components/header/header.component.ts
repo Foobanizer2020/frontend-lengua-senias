@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit {
 
   doNotShow:Boolean;
   loggedIn:Boolean;
+  isAdmin:Boolean;
 
   constructor(
     private tokenService:TokenStorageService
@@ -21,6 +22,7 @@ export class HeaderComponent implements OnInit {
       this.doNotShow = true;
     }
     this.loggedIn = this.tokenService.isLoggedIn();
+    this.isAdmin = this.tokenService.isAdmin();
   }
 
   cerrarSesion() {

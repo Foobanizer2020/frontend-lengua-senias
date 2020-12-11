@@ -14,6 +14,7 @@
                 <div class="dropdown-menu" aria-labelledby="dropdown05">
                     <a class="dropdown-item" routerLink="indice_palabras">Palabras</a>
                     <a class="dropdown-item" routerLink="indice_frases">Frases</a>
+                    <a *ngIf="loggedIn" class="dropdown-item" routerLink="favoritos">Favoritos</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -23,6 +24,18 @@
                     <a class="dropdown-item" href="#">Texto a Voz</a>
                     <a class="dropdown-item" href="#">Voz a Texto</a>
                     <a class="dropdown-item" href="#">Apps</a>
+                </div>
+            </li>
+            <li *ngIf="isAdmin" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrador</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown05">
+                    <a class="dropdown-item" routerLink="frase">Frases</a>
+                    <a class="dropdown-item" routerLink="palabra">Palabras</a>
+                    <a class="dropdown-item" routerLink="categoria">Categorías</a>
+                    <a class="dropdown-item" routerLink="fcategoria">Categorías (frases)</a>
+                    <a class="dropdown-item" routerLink="pais">Paises</a>
+                    <a class="dropdown-item" routerLink="lengua">Lenguas</a>
+                    <a class="dropdown-item" routerLink="idioma">Idiomas</a>
                 </div>
             </li>
             <li class="nav-item active">
