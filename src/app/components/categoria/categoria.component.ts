@@ -85,7 +85,7 @@ export class CategoriaComponent implements OnInit {
     $("#categoriaModal").modal("show");
   }
   openEdicionModal(categoria: Categoria) {
-    this.categoriaForm.reset();
+    this.categoriaForm.patchValue(categoria);
     this.submitted = false;
     this.formStatus = "UPDATE";
     $("#categoriaModal").modal("show");
